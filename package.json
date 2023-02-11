@@ -1,0 +1,24 @@
+{
+  "name": "bipifullstackengassessment",
+  "version": "1.0.0",
+  "description": "Full Stack Engineer Candidate Assessment for bipi",
+  "main": "index.js",
+  "scripts": {
+    "migrate": "npx knex migrate:latest --knexfile db/knexfile.js",
+    "seed": "cd db && npx knex seed:run --specific=initial_seed.js && cd ..",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jonathan Chin",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.8.0",
+    "knex": "^2.4.2",
+    "pg": "^8.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
