@@ -3,9 +3,9 @@ This project involves setting up a backend for storing and querying merchant inf
 
 Tech Stack used:
 1) Database - postgresql 
-2) Knex.js for database management & seeding 
+2) Knex.js for database management, seeding and query builder
 3) Node.js + Express - Backend server 
-4) Graphql (yet to be implemented) for database querying
+4) Graphql - API query language
 
 Notes: 
 1) The backend is currently setup for development only - future update to include config option for production as well
@@ -35,3 +35,6 @@ Steps to get the backend running:
 
 8) Seed the merchant table via knex using the following command:
     npm run seed
+
+9) To access the query builder (GraphiQL), open your browser (replace the 8080 with your specified port) : 
+    http://localhost:8080/graphql
