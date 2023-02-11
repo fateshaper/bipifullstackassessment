@@ -19,8 +19,19 @@ const RootQueryType = new GraphQLObjectType({
     fields: () => ({
         merchants: {
             type : new GraphQLList(MerchantType),
-            description : 'List of all merchants',
-            resolve(){return db('merchants').select('*')}
+            description : 'List of merchants, paginated and sorted based on column',
+            args: {
+                perPage: {type: GraphQLNonNull(GraphQLInt)},
+                currentPage: {type: GraphQLNonNull(GraphQLInt)},
+                column : {type:GraphQLNonNull(GraphQLString)},
+                order: {type: GraphQLNonNull(GraphQLString)}
+            },
+            resolve(parent,{perPage, currentPage,column, order}){
+                return db('merchants')
+                .orderBy(column, order)
+                .paginate({perPage, currentPage})
+                .then(res=>res.data)
+            }
         },
         merchant: {
             type: MerchantType,
