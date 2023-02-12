@@ -13,7 +13,7 @@ Tech Stack used:
 5. graphql-tools/mock and jest were used for testing purposes
 6. No front-end - querying can be carried out via GraphiQL in the browser
 
-Directory Setup:
+Directory Setup (open in text editor for formatting purposes)
 -- Config
    --index.js     <--- Web server configuration (ie. port etc)
 -- DB
