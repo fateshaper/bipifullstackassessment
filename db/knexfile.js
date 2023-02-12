@@ -5,18 +5,18 @@
  */
 module.exports = {
   development: {
-    client: 'postgresql',
+    client: "postgresql",
     connection: {
-      database: 'bipiassessment',
-      user:     'postgres',
-      password: 'postgres'
+      database: "bipiassessment",
+      user: "postgres",
+      password: "postgres",
     },
     pool: {
       min: 2,
-      max: 10
+      max: 10,
     },
     migrations: {
-      tableName: 'knex_migrations'
-    }
+      tableName: "knex_migrations",
+    },
   },
-};
+}
