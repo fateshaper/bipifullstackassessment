@@ -1,4 +1,5 @@
-Project Introduction
+Project Introduction:
+
 This project involves setting up a backend for storing and querying merchant information, for the Bipi full stack engineer assessment.
 
 Tech Stack used:
