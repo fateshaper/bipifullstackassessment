@@ -39,8 +39,9 @@ Notes:
 Steps to get the server running:
 
 1. Install all required packages via :
+   ```
    npm install
-
+   ```
 2. Start your postgres server
 
 3. Create your database - Default used is bipiassessment
