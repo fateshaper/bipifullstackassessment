@@ -12,7 +12,7 @@ exports.up = function (knex) {
     table.decimal("latitude")
     table.decimal("longitude")
     table.boolean("is_active").notNullable().defaultTo(0)
-    table.timestamps(false, true)
+    table.timestamps(false, true) //Timestamp format - created at & updated at
   })
 }
 

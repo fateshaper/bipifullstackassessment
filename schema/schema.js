@@ -9,14 +9,13 @@ const {
   GraphQLNonNull,
   GraphQLBoolean,
 } = require("graphql")
-
 //Importing custom scalar types
 const {
   GraphQLLatitude,
   GraphQLLongitude,
   GraphQLDateTime,
 } = require("graphql-scalars")
-const { default: knex } = require("knex")
+const MerchantType = require("./typedefs")
 
 //List of query APIs
 const RootQueryType = new GraphQLObjectType({
@@ -49,22 +48,6 @@ const RootQueryType = new GraphQLObjectType({
         return db("merchants").select("*").where("id", args.id).first()
       },
     },
-  }),
-})
-
-//Latitude and longitude can be null
-const MerchantType = new GraphQLObjectType({
-  name: "Merchant",
-  description: "This represents a single merchant",
-  fields: () => ({
-    id: { type: GraphQLInt },
-    merchant_name: { type: GraphQLNonNull(GraphQLString) },
-    phone_number: { type: GraphQLNonNull(GraphQLString) },
-    latitude: { type: GraphQLLatitude },
-    longitude: { type: GraphQLLongitude },
-    is_active: { type: GraphQLNonNull(GraphQLBoolean) },
-    created_at: { type: GraphQLNonNull(GraphQLDateTime) },
-    updated_at: { type: GraphQLNonNull(GraphQLDateTime) },
   }),
 })
 
@@ -101,7 +84,7 @@ const RootMutationType = new GraphQLObjectType({
     },
     updateMerchant: {
       type: MerchantType,
-      description: "Update an existing merchant",
+      description: "Update an existing merchant's information",
       args: {
         id: { type: GraphQLNonNull(GraphQLInt) }, //Specify ID of merchant to be updated
         merchant_name: { type: GraphQLString },
@@ -130,7 +113,7 @@ const RootMutationType = new GraphQLObjectType({
     },
     toggleActive: {
       type: new GraphQLList(MerchantType),
-      description: "Bulk update merchants to active status",
+      description: "Bulk toggle merchants is_active status",
       args: {
         startid: { type: GraphQLNonNull(GraphQLInt) },
         endid: { type: GraphQLNonNull(GraphQLInt) },
