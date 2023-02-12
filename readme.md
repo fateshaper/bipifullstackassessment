@@ -13,7 +13,9 @@ Tech Stack used:
 5. graphql-tools/mock and jest were used for testing purposes
 6. No front-end - querying can be carried out via GraphiQL in the browser
 
-Directory Setup (open in text editor for formatting purposes)
+
+Directory Setup 
+```
 -- Config
    --index.js     <--- Web server configuration (ie. port etc)
 -- DB
@@ -25,7 +27,7 @@ Directory Setup (open in text editor for formatting purposes)
 -- Schema         <-- Folder for graphql schema - defining merchant object type and queries/mutations
 -- Tests          <-- Sample unit tests
 -- index.js       <-- Main file for starting web server 
-
+```
 
 Notes:
 1. The server config is currently setup for development only - future update to include config option for production as well. Default local host port is set to 8080.
@@ -47,23 +49,35 @@ Steps to get the server running:
 3. Create your database - Default used is bipiassessment
 
 4. Update the development config with your own info in db/knexfile.js :
+   ```
    {database : yourdatabase,
    user: yourname,
    password: yourpassword}
+   ```
 
 5. Update your personal development settings (ie. port) in config/index.js
 
 6. Start the backend server via
+   ```
    npm run dev
+   ```
 
 7. Create the database merchant table via knex using the following command (ensure you are in bipi root folder):
+   ```
    npm run migrate
+   ```
 
 8. Seed the merchant table via knex using the following command:
+   ```
    npm run seed
+   ```
 
 9. To access the query builder (GraphiQL), open your browser (replace the 8080 with your specified port) :
+   ```
    http://localhost:8080/graphql
+   ```
 
 10. To run unit tests
+    ```
     npm run test
+    ```
